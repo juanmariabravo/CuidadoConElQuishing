@@ -1,11 +1,18 @@
-# QRShield – Detector de QR Phishing (Quishing)
-
+# CuidadoConElQuishing
 QRShield es un detector sencillo y extensible de quishing (phishing mediante códigos QR).
 Permite analizar imágenes que contienen códigos QR, extraer la URL y aplicar reglas básicas de seguridad para clasificarlas como:
 
 *   ✔ **SAFE** (Seguro)
 *   ⚠ **SUSPICIOUS** (Sospechoso)
 *   ❌ **MALICIOUS** (Malicioso)
+
+## Problema Planteado:
+El quishing es una amenaza emergente basada en la manipulación de códigos QR para redirigir a la víctima a sitios fraudulentos. Su éxito se debe a que el contenido del QR no puede comprobarse visualmente, a la confianza del usuario y a lo fácil que es falsificarlos. Esto crea la necesidad de herramientas que detecten QR maliciosos antes de que el usuario interactúe con ellos, especialmente desde dispositivos móviles. Por esto mismo, hemos creado una herramienta simple capaz de detectar si un QR es legítimo o puede ser peligroso para el usuario.
+
+## Caso Práctico (Ejemplo): Vamos a un sitio a comer y para poder recibir la carta o incluso poder conectarnos a un red del local debemos escánear un QR. Con este pequeño proyecto, podríamos realizar una foto de dicho QR y pasarlo por la página web de nuestra aplicación, la cual determinará si es seguro o no. De esta forma, evitamos entrar en una URL maliciosa.
+
+## Solución Propuesta:
+Para la solución se ha trabajado con Python y desarrollado una pequeña interfaz web que permita la subida de un QR para su posterior escáner, pudiendo determinar la legitimidad de dicho código QR.
 
 Este proyecto es un MVP (Producto Mínimo Viable) pensado como demostración práctica de ciberseguridad.
 
@@ -46,8 +53,8 @@ CuidadoConElQuishing/
 
 1.  **Clonar el repositorio** (si no lo has hecho ya):
     ```bash
-    git clone https://github.com/tuusuario/qrshield.git
-    cd qrshield
+    git clone https://github.com/juanmariabravo/CuidadoConElQuishing.git
+    cd CuidadoConElQuishing
     ```
 
 2.  **Crear y activar un entorno virtual** (recomendado):
