@@ -19,7 +19,7 @@ Para la solución se ha trabajado con Python y desarrollado una pequeña interfa
 
 Este proyecto es un MVP (Producto Mínimo Viable) pensado como demostración práctica de ciberseguridad.
 
-## 🚀 Características
+## Características
 
 *   **Decodificación**: Lee códigos QR desde imágenes (PNG/JPG).
 *   **Análisis**: Motor de reglas heurísticas para detectar patrones de riesgo.
@@ -111,7 +111,7 @@ Razones:
 2.  Abre tu navegador y ve a: `http://localhost:5000`
 3.  Sube una imagen con un QR para ver el análisis en tiempo real.
 
-## 🧪 Generación de Ejemplos
+## Generación de Ejemplos
 
 Puedes generar tus propios códigos QR de prueba usando el script incluido (o creando uno propio):
 
