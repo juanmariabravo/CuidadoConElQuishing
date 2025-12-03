@@ -1,0 +1,6 @@
+pyzbar
+Pillow
+tldextract
+requests
+flask
+qrcode[pil]
