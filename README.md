@@ -1,17 +1,18 @@
-# Autores: Mario Castro Hernández, Javier Calvo Díez, Juan María Bravo López y Iván Gímenez Tajuelo
+# Autores: Mario Castro Hernández, Javier Calvo Díez, Juan María Bravo López y Iván Jímenez Tajuelo
 
 # CuidadoConElQuishing
 QRShield es un detector sencillo y extensible de quishing (phishing mediante códigos QR).
 Permite analizar imágenes que contienen códigos QR, extraer la URL y aplicar reglas básicas de seguridad para clasificarlas como:
 
-*   ✔ **SAFE** (Seguro)
-*   ⚠ **SUSPICIOUS** (Sospechoso)
-*   ❌ **MALICIOUS** (Malicioso)
+* **SAFE** (Seguro)
+* **SUSPICIOUS** (Sospechoso)
+* **MALICIOUS** (Malicioso)
 
 ## Problema Planteado:
 El quishing es una amenaza emergente basada en la manipulación de códigos QR para redirigir a la víctima a sitios fraudulentos. Su éxito se debe a que el contenido del QR no puede comprobarse visualmente, a la confianza del usuario y a lo fácil que es falsificarlos. Esto crea la necesidad de herramientas que detecten QR maliciosos antes de que el usuario interactúe con ellos, especialmente desde dispositivos móviles. Por esto mismo, hemos creado una herramienta simple capaz de detectar si un QR es legítimo o puede ser peligroso para el usuario.
 
-## Caso Práctico (Ejemplo): Vamos a un sitio a comer y para poder recibir la carta o incluso poder conectarnos a un red del local debemos escánear un QR. Con este pequeño proyecto, podríamos realizar una foto de dicho QR y pasarlo por la página web de nuestra aplicación, la cual determinará si es seguro o no. De esta forma, evitamos entrar en una URL maliciosa.
+## Caso Práctico (Ejemplo)
+Vamos a un sitio a comer y para poder recibir la carta o incluso poder conectarnos a un red del local debemos escánear un QR. Con este pequeño proyecto, podríamos realizar una foto de dicho QR y pasarlo por la página web de nuestra aplicación, la cual determinará si es seguro o no. De esta forma, evitamos entrar en una URL maliciosa.
 
 ## Solución Propuesta:
 Para la solución se ha trabajado con Python y desarrollado una pequeña interfaz web que permita la subida de un QR para su posterior escáner, pudiendo determinar la legitimidad de dicho código QR.
@@ -32,7 +33,7 @@ Este proyecto es un MVP (Producto Mínimo Viable) pensado como demostración pr�
     *   CLI (Línea de comandos) para análisis rápido.
     *   Web (Flask) para una interfaz gráfica amigable.
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 CuidadoConElQuishing/
@@ -51,7 +52,7 @@ CuidadoConElQuishing/
 └── LICENSE                  # Licencia
 ```
 
-## 🔧 Instalación
+## Instalación
 
 1.  **Clonar el repositorio** (si no lo has hecho ya):
     ```bash
@@ -77,7 +78,7 @@ CuidadoConElQuishing/
 
     *Nota: En Linux/Mac es posible que necesites instalar `libzbar0` (ej: `sudo apt-get install libzbar0`).*
 
-## ▶ Uso
+## Uso
 
 ### Desde Línea de Comandos (CLI)
 
@@ -87,7 +88,7 @@ Ejecuta el script `qrshield_cli.py` pasando la ruta de la imagen del QR:
 python src/qrshield_cli.py --input src/examples/safe_qr.png
 ```
 
-**Ejemplo de salida:**
+** Ejemplo de salida**
 ```text
 [+] Leyendo QR...
 [+] URL detectada: https://example.com/menu
@@ -127,7 +128,7 @@ qrcode.make("http://bit.ly/pay-confirm").save("src/examples/suspicious_qr.png")
 qrcode.make("http://192.168.1.50/login").save("src/examples/malicious_qr.png")
 ```
 
-## 🔐 Reglas de Análisis
+## Reglas de Análisis
 
 | Regla | Clasificación | Descripción |
 | :--- | :--- | :--- |
@@ -137,6 +138,6 @@ qrcode.make("http://192.168.1.50/login").save("src/examples/malicious_qr.png")
 | **Typosquatting** | SUSPICIOUS | Dominios con números inusuales o patrones extraños. |
 | **Dirección IP** | MALICIOUS | La URL apunta directamente a una IP (ej: 123.45.67.89). |
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT.
