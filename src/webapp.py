@@ -4,17 +4,18 @@ import time
 from decoder import decode_qr
 from analyzer import analyze_url
 
-app = Flask(_name_)
+app = Flask(__name__)
 
-# Modern, premium UI with Glassmorphism and smooth interactions
+# Modern, premium UI with Glassmorphism, FontAwesome icons, and smooth interactions
 HTML = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuidadoConElQuishing | Advanced Protection</title>
+    <title>Cuidado Con El Quishing | Advanced Protection</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #6366f1;
@@ -70,6 +71,15 @@ HTML = """
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
             letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header h1 i {
+            color: #6366f1;
+            font-size: 2rem;
         }
 
         .header p {
@@ -156,6 +166,11 @@ HTML = """
             align-items: center;
             margin-bottom: 15px;
         }
+        
+        .card-header i {
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
 
         .status-badge {
             font-size: 0.875rem;
@@ -177,6 +192,14 @@ HTML = """
             font-size: 0.9rem;
             margin-bottom: 20px;
             border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .url-box i {
+            color: var(--text-muted);
+            font-size: 0.9em;
         }
 
         .reasons-list {
@@ -189,10 +212,10 @@ HTML = """
             align-items: start;
         }
 
-        .reasons-list li::before {
-            content: '•';
+        .reasons-list li i {
             margin-right: 10px;
-            font-weight: bold;
+            margin-top: 3px;
+            font-size: 0.9em;
         }
 
         .loader {
@@ -222,13 +245,13 @@ HTML = """
 
 <div class="container">
     <div class="header">
-        <h1>Cuidado Con El Quishing</h1>
+        <h1><i class="fa-solid fa-shield-halved"></i> Cuidado Con El Quishing</h1>
         <p>Analizador Inteligente de Quishing</p>
     </div>
 
     <div class="upload-area" id="dropZone">
         <input type="file" id="fileInput" accept="image/*" name="file">
-        <div class="upload-icon">📁</div>
+        <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
         <div class="upload-text">Arrastra tu imagen aquí o haz clic</div>
         <div class="upload-subtext">Soporta PNG, JPG, JPEG</div>
     </div>
@@ -326,33 +349,34 @@ HTML = """
     }
 
     function showResult(data) {
-        let icon = '';
+        let iconClass = '';
         let title = '';
         
         switch(data.classification) {
-            case 'SAFE': icon = '🛡'; title = 'Sitio Seguro'; break;
-            case 'SUSPICIOUS': icon = '⚠'; title = 'Sospechoso'; break;
-            case 'MALICIOUS': icon = '⛔'; title = 'Sitio Malicioso'; break;
-            default: icon = '❓'; title = 'Error';
+            case 'SAFE': iconClass = 'fa-solid fa-circle-check'; title = 'Sitio Seguro'; break;
+            case 'SUSPICIOUS': iconClass = 'fa-solid fa-triangle-exclamation'; title = 'Sospechoso'; break;
+            case 'MALICIOUS': iconClass = 'fa-solid fa-ban'; title = 'Sitio Malicioso'; break;
+            default: iconClass = 'fa-solid fa-circle-question'; title = 'Error';
         }
 
         let reasonsHtml = '';
         if (data.reasons && data.reasons.length > 0) {
             reasonsHtml = '<ul class="reasons-list">' + 
-                data.reasons.map(r => <li>${r}</li>).join('') + 
+                data.reasons.map(r => `<li><i class="fa-solid fa-circle-info"></i> ${r}</li>`).join('') + 
                 '</ul>';
         } else {
-            reasonsHtml = '<p>✅ No se encontraron amenazas conocidas.</p>';
+            reasonsHtml = '<p><i class="fa-solid fa-shield-virus"></i> No se encontraron amenazas conocidas.</p>';
         }
 
         const html = `
             <div class="card ${data.classification}">
                 <div class="card-header">
-                    <span style="font-size: 1.5rem; margin-right: 10px;">${icon}</span>
+                    <i class="${iconClass}"></i>
                     <h3 style="margin:0;">${title}</h3>
                     <span class="status-badge">${data.classification}</span>
                 </div>
                 <div class="url-box">
+                    <i class="fa-solid fa-link"></i>
                     ${data.url}
                 </div>
                 <div>
@@ -410,5 +434,5 @@ def index():
 
     return render_template_string(HTML)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True, port=5000)
