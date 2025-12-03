@@ -141,3 +141,16 @@ qrcode.make("http://192.168.1.50/login").save("src/examples/malicious_qr.png")
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT.
+
+## Referencias
+
+Cloudflare, Inc. (s.f.). ¿Qué es el quishing?. Centro de aprendizaje de Cloudflare. https://www.cloudflare.com/es-es/learning/security/what-is-quishing/.
+
+INCIBE - Instituto Nacional de Ciberseguridad. (2022, 30 de junio). Escanea códigos QR de manera fiable y segura. Las recomendaciones de ciberseguridad enfatizan la necesidad de comprobar el enlace y no facilitar datos sensibles. https://www.incibe.es/ciudadania/blog/escanea-codigos-qr-de-manera-fiable-y-segura.
+
+Keeper Security. (2023, 8 de diciembre). ¿Qué es el “quishing”?. Señala que las discrepancias en el nombre del remitente y la verificación del enlace antes de hacer clic son claves en la prevención. https://www.keepersecurity.com/blog/es/2023/12/08/what-is-quishing/.
+
+Trend Micro. (s.f.). Qué es el Quishing? Cómo funciona y sus riesgos. Destaca que las URLs excesivamente largas o confusas, así como la falta de certificados de seguridad, son señales de alerta. https://www.trendmicro.com/es_es/what-is/phishing/types-of-phishing/quishing.html.
+
+Vidas, T., et al. (2013). QRishing: The Susceptibility of Smartphone Users to QR Code Phishing Attacks. Symposium on Usable Security and Privacy (USEC). Documento académico que establece la viabilidad económica del typosquatting como técnica de ataque.
+
